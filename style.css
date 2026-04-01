@@ -3,4 +3,6 @@ Theme Name: Conor Cunningham Personal Theme
 Author: Conor Cunningham
 Version: 1.0.1
 */
-body { font-family: sans-serif; }
+body { font-family: sans-serif;
+        background-color: red !important; 
+    }
