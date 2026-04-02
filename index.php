@@ -1,16 +1,10 @@
-<!DOCTYPE html>
-<html <?php language_attributes(); ?>>
-<head>
-    <meta charset="<?php bloginfo( 'charset' ); ?>">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>">
-    <?php wp_head(); ?> 
-</head>
-<body <?php body_class(); ?>>
-    <?php wp_body_open(); ?>
+<?php get_header(); ?>
 
-    <h1>Conor's Digital Garden is under construction</h1>
+<main class="container">
+    <h1>Digital Garden</h1>
+    <p>Welcome to the new site.</p>
+</main>
 
-    <?php wp_footer(); ?>
+<?php wp_footer(); ?>
 </body>
 </html>
