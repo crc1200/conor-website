@@ -6,3 +6,8 @@ function conor_theme_setup() {
     ) );
 }
 add_action( 'after_setup_theme', 'conor_theme_setup' );
+
+function conor_enqueue_styles() {
+    wp_enqueue_style( 'conor-style', get_stylesheet_uri() );
+}
+add_action( 'wp_enqueue_scripts', 'conor_enqueue_styles' );
