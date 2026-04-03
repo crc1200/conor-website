@@ -21,6 +21,7 @@ get_header(); ?>
         if ( $writing_query->have_posts() ) :
             while ( $writing_query->have_posts() ) : $writing_query->the_post();
                 $external_url = get_field( 'external_url' );
+                echo '<!-- debug: [' . $external_url . '] -->';
                 $featured     = get_field( 'featured_article' );
                 $card_class   = $featured ? 'writing-card wide' : 'writing-card';
                 $categories   = get_the_category();
