@@ -21,22 +21,23 @@ get_header(); ?>
         if ( $writing_query->have_posts() ) :
             while ( $writing_query->have_posts() ) : $writing_query->the_post();
                 $external_url = get_field( 'external_url' );
-                echo '<!-- debug: [' . $external_url . '] -->';
                 $featured     = get_field( 'featured_article' );
-                $card_class   = $featured ? 'writing-card wide' : 'writing-card';
-                $categories   = get_the_category();
-                $tag_label    = ! empty( $categories ) ? esc_html( $categories[0]->name ) : '';
+                $tall         = get_field( 'tall_card' );
+                $card_image   = get_field( 'card_image' );
+                $classes      = 'writing-card';
+                if ( $featured ) $classes .= ' wide';
+                if ( $tall )     $classes .= ' tall';
         ?>
-            <a href="<?php echo esc_url( $external_url ); ?>" target="_blank" class="<?php echo $card_class; ?>">
+            <a href="<?php echo esc_url( $external_url ); ?>" target="_blank" class="<?php echo $classes; ?>">
+                <?php if ( $card_image ) : ?>
+                    <div class="card-image" style="background-image: url('<?php echo esc_url( $card_image ); ?>')"></div>
+                <?php endif; ?>
                 <div class="card-content">
-                    <?php if ( $tag_label ) : ?>
-                        <span class="tag"><?php echo $tag_label; ?></span>
-                    <?php endif; ?>
+                    <span class="date"><?php echo get_the_date( 'M j, Y' ); ?></span>
                     <h2><?php the_title(); ?></h2>
                     <?php if ( has_excerpt() ) : ?>
                         <p><?php the_excerpt(); ?></p>
                     <?php endif; ?>
-                    <span class="date"><?php echo get_the_date( 'M Y' ); ?></span>
                 </div>
             </a>
         <?php
