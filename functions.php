@@ -4,6 +4,7 @@ function conor_theme_setup() {
     register_nav_menus( array(
         'primary' => __( 'Primary Menu', 'conor-theme' ),
     ) );
+    add_theme_support( 'post-thumbnails' );
 }
 add_action( 'after_setup_theme', 'conor_theme_setup' );
 
